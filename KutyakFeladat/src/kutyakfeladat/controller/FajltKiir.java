@@ -33,26 +33,4 @@ public class FajltKiir {
             
         }
     }
-    
-    
-    
-    /*
-    public void FajlBeolvasas(String fajlNeve, int elsoIndex, int szeletekSzama)
-    {
-        try 
-        {
-            raf = new RandomAccessFile(fajlNeve, "r");
-            
-            raf.seek(elsoIndex);
-            sor = raf.readLine();
-            szeletek = new String[szeletekSzama];
-            
-        } 
-        catch (FileNotFoundException ex) {
-            Logger.getLogger(FajltKiir.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(FajltKiir.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    */
 }
