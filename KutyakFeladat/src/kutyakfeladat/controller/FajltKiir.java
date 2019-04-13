@@ -4,8 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 public class FajltKiir {
@@ -26,11 +24,12 @@ public class FajltKiir {
         }
         catch (FileNotFoundException ex) 
         {
+            System.out.println(ex.getMessage());
             
         }
         catch (IOException ex) 
         {
-            
+            System.out.println(ex.getMessage());
         }
     }
 }
