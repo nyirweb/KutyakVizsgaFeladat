@@ -212,7 +212,7 @@ public class KutyakFeladatKonzolraKiir
             String nev = kutyaNevStatisztikaModel.getKutyaNeve();
             String db = kutyaNevStatisztikaModel.getDarabSzam();
 
-            // Ezt adjuk a listánkhoz, amir a fájlba írunk majd.
+            // Ezt adjuk a listánkhoz, amit a fájlba írunk majd.
             String egySorbaIr =  nev+";"+db;
             // Itt adjuk hozzá az elemeket egyesével a listához.
             kiirandoEredmeny.add(egySorbaIr);
