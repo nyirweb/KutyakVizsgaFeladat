@@ -2,11 +2,8 @@ package kutyakfeladat.view;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 import kutyakfeladat.controller.FajltKiir;
 import kutyakfeladat.controller.KutyNevStatisztikaListaLetrehozo;
 import kutyakfeladat.controller.KutyaFajtakBeolvas;
@@ -201,21 +198,26 @@ public class KutyakFeladatKonzolraKiir
         ArrayList<KutyaNevStatisztikaModel> statisztikaNevek 
                 = KutyNevStatisztikaListaLetrehozo.kutyaNevekStatisztika(kutyaNevek,kutyak);
         
+        // Ehhez a listához adjuk hozzá az eredményünk (statisztikaNevek) 
+        // adatait népszerűség szerint sorba rendezve
         ArrayList<String> kiirandoEredmeny = new ArrayList<>();
         
-        int hossz = statisztikaNevek.size();
-        System.out.println(" hossz "+hossz);
-
-        Collections.sort(statisztikaNevek,Collections.reverseOrder(Comparator.comparing(KutyaNevStatisztikaModel::getDarabSzam)));
+        //Sorba rendezi a kapott eredményeket népszerűség szerint csökkenő sorrendbe
+        Collections.sort(statisztikaNevek,Collections
+                .reverseOrder(Comparator.comparing(KutyaNevStatisztikaModel::getDarabSzam)));
 
         for (KutyaNevStatisztikaModel kutyaNevStatisztikaModel : statisztikaNevek) 
         {
-            
+            //A statisztikaNevek listát bejárjuk és egyes elemek értékét meghatározzuk
             String nev = kutyaNevStatisztikaModel.getKutyaNeve();
             String db = kutyaNevStatisztikaModel.getDarabSzam();
 
+            // Ezt adjuk a listánkhoz, amir a fájlba írunk majd.
             String egySorbaIr =  nev+";"+db;
+            // Itt adjuk hozzá az elemeket egyesével a listához.
             kiirandoEredmeny.add(egySorbaIr);
+            
+            //Létrehozzuk a fájlt, amit a 10. feladat kér tőlünk!
             FajltKiir.FajltKiir(kiirandoEredmeny, "Névstatisztika.txt");
 
         }
